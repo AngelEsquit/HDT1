@@ -10,12 +10,14 @@ public class Radio implements IRadio{
         boolean state = false;
         float frecuency = 0;
         float[] frequencies = new float[12];
+        int option = 0;
+
         while (true) {
             turnOn();
             scanner.nextLine();
 
             try { // Try para proteger el menú
-                opcion = scanner.nextInt();
+                option = scanner.nextInt();
                 scanner.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("");
@@ -31,11 +33,11 @@ public class Radio implements IRadio{
         System.out.println("                Menú");
         System.out.println("**************************************");
         System.out.println("Ingrese la opción que desee:");
-        System.out.println("1: Buscar un producto");
-        System.out.println("2: Lista de productos");
-        System.out.println("3: Ventas");
-        System.out.println("4: Ver informe");
-        System.out.println("5: Registrar venta");
+        System.out.println("1: AM/FM");
+        System.out.println("2: Siguiente emisora");
+        System.out.println("3: Anterior emisora");
+        System.out.println("4: Guardar emisora");
+        System.out.println("5: Seleccionar una emisora guardada");
         System.out.println("6: Apagar la radio");
         System.out.println("");
     }

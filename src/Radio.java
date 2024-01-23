@@ -50,26 +50,30 @@ public class Radio implements IRadio{
         System.out.println("1. AM");
         System.out.println("2. FM");
         int option = scanner.nextInt();
-        switch (option) {
-            case 1:
-                System.out.println("AM");
-                if (amfm == true) {
-                    System.out.println("La frecuencia ya era AM");
-                }
-                amfm = true;
-                break;
-            case 2:
-                if (amfm == false) {
-                    System.out.println("La frecuencia ya era FM");
-                }
-                System.out.println("FM");
-                amfm = false;
-                break;
-            default:
-                System.out.println("Opción inválida");
-                break;
+        if (getState() == false) {
+            System.out.println("ERROR Radio apagada, enciéndela");
         }
-
+        if (getState() == true) {
+            switch (option) {
+                case 1:
+                    System.out.println("AM");
+                    if (amfm == true) {
+                        System.out.println("La frecuencia ya era AM");
+                    }
+                    amfm = true;
+                    break;
+                case 2:
+                    if (amfm == false) {
+                        System.out.println("La frecuencia ya era FM");
+                    }
+                    System.out.println("FM");
+                    amfm = false;
+                    break;
+                default:
+                    System.out.println("Opción inválida");
+                    break;
+        }
+    }
     } //FM o AM
 
     public boolean getStateAMFM(){

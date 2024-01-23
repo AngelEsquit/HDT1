@@ -3,6 +3,10 @@ import java.util.Scanner;
 /**
  * La clase MenuUI representa la interfaz de usuario.
  */
+/**
+ * Represents the user interface for the radio application menu.
+ * Allows the user to perform various actions.
+ */
 public class MenuUI {
 
     /**

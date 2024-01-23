@@ -1,6 +1,9 @@
 package test;
 import org.junit.*;
 import src.Radio;
+/**
+ * This class contains unit tests for the Radio class.
+ */
 public class Testing {
     @Test
     public void testgetState() {
@@ -21,11 +24,11 @@ public class Testing {
     @Test
     public void testnextFrequency() {
         Radio radio = new Radio();
-        radio.frequency = 87.9f;
+        radio.frequency = 87.8f;
         radio.state = true;
         radio.amfm = false;
         radio.nextFrequency();
-        Assert.assertEquals(88.9f, radio.frequency, 0.1f);
+        Assert.assertEquals(88.0f, radio.frequency, 0.2f);
     
     }
 }

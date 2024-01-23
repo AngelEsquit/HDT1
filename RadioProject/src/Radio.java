@@ -12,6 +12,11 @@ import java.math.RoundingMode;
  * guardar emisoras favoritas, entre otros.
  */
 
+/**
+ * Represents a radio object that implements the IRadio interface.
+ * The radio has the ability to toggle power on/off, switch between AM and FM frequencies,
+ * change to the next or previous frequency, save and retrieve favorite frequencies.
+ */
 public class Radio implements IRadio{
     Scanner scanner = new Scanner(System.in);
     /**
@@ -127,7 +132,7 @@ public class Radio implements IRadio{
     public void nextFrequency() {
         if (state) {
             BigDecimal frequencyBigDecimal = BigDecimal.valueOf(frequency);
-            BigDecimal increment = amfm ? BigDecimal.valueOf(0.1) : BigDecimal.valueOf(0.1);
+            BigDecimal increment = amfm ? BigDecimal.valueOf(0.2) : BigDecimal.valueOf(0.2);
             frequencyBigDecimal = frequencyBigDecimal.add(increment);
     
             if (frequencyBigDecimal.floatValue() > 108.0f) {
@@ -148,7 +153,7 @@ public class Radio implements IRadio{
     public void previousFrequency() {
         if (state) {
             BigDecimal frequencyBigDecimal = BigDecimal.valueOf(frequency);
-            BigDecimal decrement = amfm ? BigDecimal.valueOf(0.1) : BigDecimal.valueOf(0.1);
+            BigDecimal decrement = amfm ? BigDecimal.valueOf(0.2) : BigDecimal.valueOf(0.2);
             frequencyBigDecimal = frequencyBigDecimal.subtract(decrement);
     
             if (frequencyBigDecimal.floatValue() < 88.0f) {

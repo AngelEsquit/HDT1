@@ -1,3 +1,4 @@
+
 public interface IRadio{
     
     public boolean getState(); //Retornamos el valor de si esta encendido o no

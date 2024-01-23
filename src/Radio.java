@@ -1,42 +1,17 @@
-<<<<<<< Updated upstream
-public class Radio implements IRadio{
-   
-    public boolean getState(){
-    } //Retornamos el valor de si esta encendido o no
+package Src;
 
-    public void tooglePowerOffOn(){
-    } //Apagar y encender
-
-    public void toogleAMFM(){
-    } //FM o AM
-
-    public boolean getStateAMFM(){
-    } //Obtener si esta en FM o AM
-
-    public void nextFrequency(){
-    } //Siguiente frecuencia
-
-    public void previousFrequency(){
-    }//frecuencia previa
-
-    public float getCurrentFrequency(){
-    }//Obtener la frecuencia actual
-
-    public void setFavFrequency(int button){
-    } //Guarda frecuencia
-
-    public float getFavFrequency(int button){
-=======
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Radio implements IRadio{
     Scanner scanner = new Scanner(System.in);
-    private Map<Integer, Float> favFrequency = new HashMap<>();
-    private boolean state = false;
-    private boolean amfm = false;
-    private float frequency = 0;
+    public Map<Integer, Float> favFrequency = new HashMap<>();
+    public boolean state = false;
+    public boolean amfm = false;
+    public float frequency = 88.0f;
+    
     public boolean getState(){
         if (state == true) {
             return true;
@@ -146,7 +121,6 @@ public class Radio implements IRadio{
 
     public float getFavFrequency(int button) {
         return favFrequency.getOrDefault(button, 0.0f);
->>>>>>> Stashed changes
     } //Llama frecuencia    
 
 }

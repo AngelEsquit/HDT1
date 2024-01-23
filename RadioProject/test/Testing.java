@@ -1,6 +1,6 @@
 package test;
 import org.junit.*;
-import Src.Radio;
+import src.Radio;
 public class Testing {
     @Test
     public void testgetState() {

@@ -1,11 +1,13 @@
+package src;
 import java.util.Scanner;
 
-public class Main {
+public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Radio radio = new Radio();
+        int button;
         int option = scanner.nextInt();
-        white (true){
+        while (true){
             switch (option) {
                 case 1:
                     System.out.println("AM/FM");
@@ -22,25 +24,25 @@ public class Main {
                 case 4:
                     System.out.println("Guardar emisora");
                     System.out.println("Ingrese el número de botón en el cual desea guardar la emisora (del 1 al 12)");
-                    int button = scanner.nextInt();
+                    button = scanner.nextInt();
                     if (button < 1 || button > 12) {
                         System.out.println("Opción inválida");
                         break;
                     }
                     else {
-                        radio.setFavFrequency();
+                        radio.setFavFrequency(button);
                         break;
                     }
                 case 5:
                     System.out.println("Seleccionar una emisora guardada");
                     System.out.println("Ingrese el número de botón en el cual desea guardar la emisora (del 1 al 12)");
-                    int button = scanner.nextInt();
+                    button = scanner.nextInt();
                     if (button < 1 || button > 12) {
                         System.out.println("Opción inválida");
                         break;
                     }
                     else {
-                        radio.getFavFrequency();
+                        radio.getFavFrequency(button);
                         break;
                     }
                 case 6:
@@ -51,7 +53,6 @@ public class Main {
                     System.out.println("Opción inválida");
                     break;
             }
-        }
-        scanner.close();
+        } 
     }
 }

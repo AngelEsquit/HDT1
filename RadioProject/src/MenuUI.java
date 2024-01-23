@@ -1,3 +1,5 @@
+package src;
+
 public class MenuUI {
     public static void printMenu() {
         System.out.println("");

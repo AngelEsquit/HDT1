@@ -3,6 +3,8 @@ package src;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 
 public class Radio implements IRadio{
@@ -87,27 +89,39 @@ public class Radio implements IRadio{
 
     public void nextFrequency() {
         if (state) {
-            frequency += (amfm ? 0.2f : 1.0f);
-            if (frequency > 108.0f) {
-                frequency = 88.0f;
+            BigDecimal frequencyBigDecimal = BigDecimal.valueOf(frequency);
+            BigDecimal increment = amfm ? BigDecimal.valueOf(0.1) : BigDecimal.valueOf(0.1);
+            frequencyBigDecimal = frequencyBigDecimal.add(increment);
+    
+            if (frequencyBigDecimal.floatValue() > 108.0f) {
+                frequencyBigDecimal = BigDecimal.valueOf(88.0f);
             }
+    
+            frequency = frequencyBigDecimal.setScale(1, RoundingMode.HALF_UP).floatValue();
+    
             System.out.println("Frecuencia siguiente: " + frequency);
         } else {
             System.out.println("ERROR Radio apagada, enciéndela");
         }
-    } //Siguiente frecuencia
-
+    }
+    
     public void previousFrequency() {
         if (state) {
-            frequency -= (amfm ? 0.2f : 1.0f);
-            if (frequency < 88.0f) {
-                frequency = 108.0f;
+            BigDecimal frequencyBigDecimal = BigDecimal.valueOf(frequency);
+            BigDecimal decrement = amfm ? BigDecimal.valueOf(0.1) : BigDecimal.valueOf(0.1);
+            frequencyBigDecimal = frequencyBigDecimal.subtract(decrement);
+    
+            if (frequencyBigDecimal.floatValue() < 88.0f) {
+                frequencyBigDecimal = BigDecimal.valueOf(108.0f);
             }
+    
+            frequency = frequencyBigDecimal.setScale(1, RoundingMode.HALF_UP).floatValue();
+    
             System.out.println("Frecuencia anterior: " + frequency);
         } else {
             System.out.println("ERROR Radio apagada, enciéndela");
         }
-    }//frecuencia previa
+    }
 
     public float getCurrentFrequency() {
         return frequency;

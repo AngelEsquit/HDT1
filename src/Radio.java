@@ -1,50 +1,30 @@
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class Radio implements IRadio{
-    
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        boolean state = false;
-        float frecuency = 0;
-        float[] frequencies = new float[12];
-        int option = 0;
+   
+    public boolean getState(){
+    } //Retornamos el valor de si esta encendido o no
 
-        while (true) {
-            turnOn();
-            scanner.nextLine();
+    public void tooglePowerOffOn(){
+    } //Apagar y encender
 
-            try { // Try para proteger el menú
-                option = scanner.nextInt();
-                scanner.nextLine();
-            } catch (InputMismatchException e) {
-                System.out.println("");
-                System.out.println("Ingrese un número.");
-                scanner.nextLine();
-            }
-        }
-    }
+    public void toogleAMFM(){
+    } //FM o AM
 
-    public static void printMenu() {
-        System.out.println("");
-        System.out.println("**************************************");
-        System.out.println("                Menú");
-        System.out.println("**************************************");
-        System.out.println("Ingrese la opción que desee:");
-        System.out.println("1: AM/FM");
-        System.out.println("2: Siguiente emisora");
-        System.out.println("3: Anterior emisora");
-        System.out.println("4: Guardar emisora");
-        System.out.println("5: Seleccionar una emisora guardada");
-        System.out.println("6: Apagar la radio");
-        System.out.println("");
-    }
+    public boolean getStateAMFM(){
+    } //Obtener si esta en FM o AM
 
-    public static void turnOn() { // Pregunta para encender la radio
-        System.out.println("");
-        System.out.println("Presione cualquier tecla para encender la radio");
-        System.out.println("");
-    }
+    public void nextFrequency(){
+    } //Siguiente frecuencia
+
+    public void previousFrequency(){
+    }//frecuencia previa
+
+    public float getCurrentFrequency(){
+    }//Obtener la frecuencia actual
+
+    public void setFavFrequency(int button){
+    } //Guarda frecuencia
+
+    public float getFavFrequency(int button){
+    } //Llama frecuencia    
+
 }

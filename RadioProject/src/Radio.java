@@ -6,22 +6,48 @@ import java.util.Map;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * La clase Radio implementa la interfaz IRadio y proporciona diversas funciones
+ * básicas para operar una radio, tales como: encender/apagar, cambiar la frecuencia,
+ * guardar emisoras favoritas, entre otros.
+ */
 
 public class Radio implements IRadio{
     Scanner scanner = new Scanner(System.in);
+    /**
+     * Mapa que almacena las frecuencias favoritas.
+     */
+
     public Map<Integer, Float> favFrequency = new HashMap<>();
+    /**
+     * Estado de la radio (encendida o apagada).
+     */
     public boolean state = false;
+    /**
+     * Tipo de frecuencia actual (AM o FM).
+     */
     public boolean amfm = false;
+    /**
+     * Frecuencia actual de la radio.
+     */
     public float frequency = 88.0f;
     
+    /**
+     * Obtiene el estado actual de la radio.
+     *
+     * @return Verdadero si la radio está encendida, falso si está apagada.
+     */
     public boolean getState(){
         if (state == true) {
             return true;
         } else {
             return false;
         }
-    } //Retornamos el valor de si esta encendido o no
+    } 
 
+    /**
+     * Enciende o apaga la radio.
+     */
     public void tooglePowerOffOn(){
         System.out.println("Encender/apagar la radio");
         System.out.println("1. Encender");
@@ -45,8 +71,11 @@ public class Radio implements IRadio{
                 break;
         }
         
-    } //Apagar y encender
+    } 
 
+    /**
+     * Cambia entre las frecuencias AM y FM.
+     */
     public void toogleAMFM(){
         System.out.println("AM/FM");
         System.out.println("1. AM");
@@ -76,8 +105,13 @@ public class Radio implements IRadio{
                     break;
         }
     }
-    } //FM o AM
+    } 
 
+    /**
+     * Obtiene el tipo de frecuencia actual (AM o FM).
+     *
+     * @return Verdadero si está en FM, falso si está en AM.
+     */
     public boolean getStateAMFM(){
         if (amfm == true) {
             return true;
@@ -85,8 +119,11 @@ public class Radio implements IRadio{
             return false;
         }
 
-    } //Obtener si esta en FM o AM
+    }
 
+    /**
+     * Cambia a la siguiente frecuencia.
+     */
     public void nextFrequency() {
         if (state) {
             BigDecimal frequencyBigDecimal = BigDecimal.valueOf(frequency);
@@ -105,6 +142,9 @@ public class Radio implements IRadio{
         }
     }
     
+    /**
+     * Cambia a la frecuencia anterior.
+     */
     public void previousFrequency() {
         if (state) {
             BigDecimal frequencyBigDecimal = BigDecimal.valueOf(frequency);
@@ -123,10 +163,21 @@ public class Radio implements IRadio{
         }
     }
 
+    /**
+     * Obtiene la frecuencia actual de la radio.
+     *
+     * @return La frecuencia actual.
+     */
     public float getCurrentFrequency() {
         return frequency;
-    }//Obtener la frecuencia actual
+    }
 
+
+    /**
+     * Guarda la frecuencia actual en el botón especificado.
+     *
+     * @param button Número del botón en el cual se guardará la emisora.
+     */
     public void setFavFrequency(int button) {
         if (state) {
             float currentFrequency = getCurrentFrequency();
@@ -135,10 +186,18 @@ public class Radio implements IRadio{
         } else {
             System.out.println("ERROR Radio apagada, enciéndela");
         }
-    } //Guarda frecuencia
+    } 
+
+
+    /**
+     * Obtiene la frecuencia guardada en el botón especificado.
+     *
+     * @param button Número del botón del cual se obtendrá la emisora guardada.
+     * @return La frecuencia guardada en el botón especificado.
+     */
 
     public float getFavFrequency(int button) {
         return favFrequency.getOrDefault(button, 0.0f);
-    } //Llama frecuencia    
+    } 
 
 }

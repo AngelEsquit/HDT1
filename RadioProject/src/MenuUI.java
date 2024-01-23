@@ -1,7 +1,15 @@
 package src;
 import java.util.Scanner;
-
+/**
+ * La clase MenuUI representa la interfaz de usuario.
+ */
 public class MenuUI {
+
+    /**
+     * Método que muestra y gestiona el menú de la aplicación de radio.
+     * Permite al usuario realizar varias acciones.
+     */
+
     public void Menu() {
         Scanner scanner = new Scanner(System.in);
         Radio radio = new Radio();
